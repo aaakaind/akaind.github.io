@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Add 3D tilt effect to cards on mouse move
-    const cards = document.querySelectorAll('.card-3d, .contact-card');
+    const cards = document.querySelectorAll('.card-3d, .manufacturing-card, .contact-card');
     
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Animate elements on scroll
-    const animateElements = document.querySelectorAll('.card, .ai-feature, .autonomous-text, .contact-card');
+    const animateElements = document.querySelectorAll('.card, .ai-feature, .autonomous-text, .manufacturing-card, .contact-card');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
