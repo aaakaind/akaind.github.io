@@ -392,6 +392,61 @@ body {
     font-weight: bold;
 }
 
+/* Advanced Manufacturing Section */
+.manufacturing-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    line-height: 1.6;
+}
+
+.manufacturing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.manufacturing-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.manufacturing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 102, 204, 0.2);
+    border-color: var(--cool-blue);
+}
+
+.manufacturing-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.manufacturing-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--cool-blue);
+}
+
+.manufacturing-card p {
+    line-height: 1.7;
+    color: #444;
+}
+
 /* Contact Section */
 .contact-section {
     background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
@@ -458,7 +513,8 @@ body {
     }
     
     .cards-grid,
-    .ai-features {
+    .ai-features,
+    .manufacturing-grid {
         grid-template-columns: 1fr;
     }
     
