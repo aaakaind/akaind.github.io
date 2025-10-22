@@ -27,15 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     const scrollContainer = document.querySelector('.scroll-container');
     const scrollProgress = document.querySelector('.scroll-progress');
-    
+
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+
     scrollContainer.addEventListener('scroll', () => {
         let current = '';
-        
+
         // Update scroll progress bar
         const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
         const scrolled = (scrollContainer.scrollTop / scrollHeight) * 100;
         scrollProgress.style.width = scrolled + '%';
-        
+
+        // Show/hide back to top button
+        if (scrollContainer.scrollTop > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop - scrollContainer.offsetTop;
             const sectionHeight = section.clientHeight;
@@ -249,6 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         slideTimer = setTimeout(showSlides, 5000);
     };
+
+    // Back to Top functionality
+    backToTopButton.addEventListener('click', () => {
+        scrollContainer.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 
     console.log('AAAKAIND - Advanced Technology Solutions initialized');
 });
