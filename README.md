@@ -23,7 +23,7 @@ The CNAME file in this repository is currently set to: **www.example.com**
 
 **Example CNAME file content:**
 ```
-www.yourdomain.com
+www.akaind.ca
 ```
 
 #### Step 2: Configure Your Domain Registrar (DNS Settings)
