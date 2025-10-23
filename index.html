@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aaakaind</title>
-</head>
-<body>
-    <h1>Welcome to aaakaind.github.io</h1>
-    <p>This is a GitHub Pages site.</p>
+    <meta name="description" content="AKAIND/AI²/AI2 - Advanced Technology Solutions for Tomorrow. Building user-centered products, AI solutions, autonomous vehicles, and manufacturing technology.">
+    <meta name="keywords" content="AI, artificial intelligence, autonomous vehicles, manufacturing, technology solutions, software development">
+    <meta name="author" content="AKAIND">
+    <meta name="theme-color" content="#0066cc">
+    <meta property="og:title" content="AKAIND/AI²/AI2 - Advanced Technology Solutions">
+    <meta property="og:description" content="Building the Future with Advanced Technology Solutions for Tomorrow">
+    <meta property="og:type" content="website">
     <title>AKAIND/AI²/AI2 - Advanced Technology Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
     <nav class="navbar">
+        <div class="scroll-progress"></div>
         <div class="nav-container">
             <div class="logo">AKAIND/AI²/AI2</div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#showcase">Showcase</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#ai-solutions">AI Solutions</a></li>
                 <li><a href="#autonomous">Autonomous</a></li>
@@ -37,6 +43,63 @@
                     We build user-centered products, software, and solutions that advance technological development
                 </p>
                 <a href="#products" class="cta-button">Explore Our Work</a>
+            </div>
+        </section>
+
+        <!-- Slideshow Section -->
+        <section id="showcase" class="section slideshow-section">
+            <div class="section-content">
+                <h2 class="section-title">Our Innovation Showcase</h2>
+                <div class="slideshow-container">
+                    <div class="slide fade">
+                        <div class="slide-content">
+                            <div class="slide-icon">🤖</div>
+                            <h3>AI-Powered Solutions</h3>
+                            <p>Cutting-edge artificial intelligence systems that transform how businesses operate</p>
+                        </div>
+                    </div>
+                    <div class="slide fade">
+                        <div class="slide-content">
+                            <div class="slide-icon">🚗</div>
+                            <h3>Autonomous Driving</h3>
+                            <p>Next-generation vehicle automation technology for safer roads</p>
+                        </div>
+                    </div>
+                    <div class="slide fade">
+                        <div class="slide-content">
+                            <div class="slide-icon">⚡</div>
+                            <h3>Smart Manufacturing</h3>
+                            <p>Revolutionary production systems powered by intelligent automation</p>
+                        </div>
+                    </div>
+                    <div class="slide fade">
+                        <div class="slide-content">
+                            <div class="slide-icon">🔬</div>
+                            <h3>Research &amp; Development</h3>
+                            <p>Pioneering tomorrow's technologies through innovative research</p>
+                        </div>
+                    </div>
+                    <div class="slide fade">
+                        <div class="slide-content">
+                            <div class="slide-icon">🌐</div>
+                            <h3>Connected Ecosystems</h3>
+                            <p>Integrated technology platforms that work seamlessly together</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <a class="prev-slide" onclick="changeSlide(-1)">❮</a>
+                    <a class="next-slide" onclick="changeSlide(1)">❯</a>
+                </div>
+
+                <!-- Dots Indicators -->
+                <div class="dots-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
             </div>
         </section>
 
@@ -67,7 +130,7 @@
         <!-- AI Solutions Section -->
         <section id="ai-solutions" class="section ai-section">
             <div class="section-content">
-                <h2 class="section-title">Predictive & Agentic AI</h2>
+                <h2 class="section-title">Predictive &amp; Agentic AI</h2>
                 <div class="ai-features">
                     <div class="ai-feature">
                         <div class="ai-cube"></div>
@@ -99,7 +162,7 @@
                     <div class="autonomous-text">
                         <h3>Next-Generation Mobility</h3>
                         <p>
-                            Long-term research and development project focused on creating modular autonomous 
+                            Long-term research and development project focused on creating modular autonomous
                             vehicle systems that seamlessly integrate with modern vehicles.
                         </p>
                         <ul class="feature-list">
@@ -116,7 +179,7 @@
         <!-- Advanced Manufacturing Section -->
         <section id="manufacturing" class="section manufacturing-section">
             <div class="section-content">
-                <h2 class="section-title">Advanced Manufacturing & Technology</h2>
+                <h2 class="section-title">Advanced Manufacturing &amp; Technology</h2>
                 <p class="section-subtitle">
                     Bringing high-quality products to businesses and consumers through cutting-edge manufacturing technology
                 </p>
@@ -148,7 +211,7 @@
                     </div>
                     <div class="manufacturing-card">
                         <div class="manufacturing-icon">🔬</div>
-                        <h3>R&D Excellence</h3>
+                        <h3>R&amp;D Excellence</h3>
                         <p>Continuous research and development to stay at the forefront of manufacturing technology</p>
                     </div>
                 </div>
@@ -179,5 +242,8 @@
     </main>
 
     <script src="script.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 </body>
 </html>
