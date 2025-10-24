@@ -1,5 +1,28 @@
 # aaakaind.github.io
 
+## Deployment
+
+This site is automatically deployed to GitHub Pages using GitHub Actions. The deployment workflow (`.github/workflows/deploy.yml`) runs automatically when changes are pushed to the `main` branch.
+
+### How Deployment Works
+
+1. When code is pushed to the `main` branch, the GitHub Actions workflow is triggered
+2. The workflow checks out the repository
+3. It configures GitHub Pages settings
+4. It uploads the site files as an artifact
+5. Finally, it deploys the site to GitHub Pages
+
+The site will be available at:
+- Primary URL: https://aaakaind.github.io
+- Custom domain: https://www.akaind.ca (when DNS is configured)
+
+### Manual Deployment
+
+You can also trigger a deployment manually:
+1. Go to the Actions tab in the GitHub repository
+2. Select the "Deploy static content to Pages" workflow
+3. Click "Run workflow" and select the `main` branch
+
 ## Custom Domain Setup with CNAME
 
 This repository includes a CNAME file for setting up a custom domain with GitHub Pages.
@@ -10,7 +33,7 @@ A CNAME file is used by GitHub Pages to configure a custom domain for your site.
 
 ### Current Setup
 
-The CNAME file in this repository is currently set to: **www.example.com**
+The CNAME file in this repository is currently set to: **www.akaind.ca**
 
 ### How to Configure Your Custom Domain
 
