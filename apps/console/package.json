@@ -1,0 +1,36 @@
+{
+  "name": "@akaind/console",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Product console for AKA Industries SaaS platform",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx",
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "@akaind/ui": "workspace:*",
+    "@akaind/auth": "workspace:*",
+    "@akaind/analytics": "workspace:*",
+    "@tanstack/react-query": "^5.13.0",
+    "recharts": "^2.10.3",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.7",
+    "vitest": "^1.0.4",
+    "@playwright/test": "^1.40.0",
+    "eslint": "^8.55.0"
+  }
+}
