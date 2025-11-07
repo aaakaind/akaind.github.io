@@ -16,8 +16,8 @@
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@akaind/ui": "workspace:*",
-    "@akaind/analytics": "workspace:*",
+    "@akaind/ui": "*",
+    "@akaind/analytics": "*",
     "next-i18next": "^15.2.0",
     "contentful": "^10.6.0",
     "framer-motion": "^10.16.0"

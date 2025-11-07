@@ -1,8 +1,8 @@
 {
-  "name": "@akaind/console",
+  "name": "@akaind/partner-portal",
   "version": "1.0.0",
   "private": true,
-  "description": "Product console for AKA Industries SaaS platform",
+  "description": "Partner portal for AKA Industries platform",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
