@@ -12,7 +12,7 @@ export interface PartnerProfile {
   description: string;
   category: 'integration' | 'consulting' | 'reseller' | 'technology';
   size: 'startup' | 'smb' | 'enterprise';
-  logo?: File;
+  logo?: File | string;
 }
 
 export interface AppSubmission {
@@ -30,7 +30,7 @@ export interface AppSubmission {
     price?: number;
     currency?: string;
   };
-  screenshots: File[];
+  screenshots: (File | string)[];
   documentation?: string;
 }
 
@@ -42,7 +42,7 @@ export interface RevenueShareAgreement {
   taxDetails: {
     country: string;
     taxId?: string;
-    w9Form?: File;
+    w9Form?: File | string;
   };
 }
 
@@ -105,9 +105,9 @@ export class PartnerOnboardingFlow {
       this.validateProfile(profile);
 
       // Upload logo if provided
-      if (profile.logo) {
+      if (profile.logo && profile.logo instanceof File) {
         const logoUrl = await this.uploadFile(profile.logo);
-        profile = { ...profile, logo: logoUrl as any };
+        profile = { ...profile, logo: logoUrl };
       }
 
       // Save profile
@@ -171,9 +171,11 @@ export class PartnerOnboardingFlow {
 
       // Upload screenshots
       const screenshotUrls = await Promise.all(
-        app.screenshots.map(file => this.uploadFile(file))
+        app.screenshots
+          .filter((file): file is File => file instanceof File)
+          .map(file => this.uploadFile(file))
       );
-      app.screenshots = screenshotUrls as any;
+      app.screenshots = screenshotUrls;
 
       // Validate webhook URL if provided
       if (app.webhookUrl) {
@@ -208,9 +210,9 @@ export class PartnerOnboardingFlow {
       this.validateRevenueShare(agreement);
 
       // Upload tax documents if provided
-      if (agreement.taxDetails.w9Form) {
+      if (agreement.taxDetails.w9Form && agreement.taxDetails.w9Form instanceof File) {
         const documentUrl = await this.uploadFile(agreement.taxDetails.w9Form);
-        agreement.taxDetails.w9Form = documentUrl as any;
+        agreement.taxDetails.w9Form = documentUrl;
       }
 
       // Submit agreement

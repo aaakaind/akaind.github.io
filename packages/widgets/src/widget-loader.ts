@@ -193,7 +193,9 @@ class WidgetLoader {
       }, 10000);
 
       const handler = (event: MessageEvent) => {
-        if (event.source === iframe.contentWindow && event.data.type === 'ready') {
+        if (event.source === iframe.contentWindow && 
+            this.ALLOWED_ORIGINS.includes(event.origin) && 
+            event.data.type === 'ready') {
           clearTimeout(timeout);
           window.removeEventListener('message', handler);
           resolve();

@@ -37,6 +37,11 @@ export interface Recommendation {
   reason: string;
 }
 
+export interface TargetAudience {
+  roles?: string[];
+  regions?: string[];
+}
+
 export class PersonalizationEngine {
   private cache: Map<string, PersonalizedContent> = new Map();
   private readonly CACHE_TTL = 300000; // 5 minutes
@@ -316,7 +321,7 @@ export class PersonalizationEngine {
   /**
    * Check if user matches target audience
    */
-  private matchesAudience(context: UserContext, audience: any): boolean {
+  private matchesAudience(context: UserContext, audience: TargetAudience): boolean {
     if (audience.roles && !audience.roles.includes(context.role)) {
       return false;
     }
