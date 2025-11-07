@@ -68,3 +68,5 @@ infra/.terraform.lock.hcl
 .cache/
 .parcel-cache/
 .eslintcache
+# Node modules
+node_modules/
