@@ -82,7 +82,12 @@ function getDeviceType(): string {
 
 function getIntentSignals(cookieStore: any): string[] {
   const signals = cookieStore.get('intent_signals')?.value;
-  return signals ? JSON.parse(signals) : [];
+  if (!signals) return [];
+  try {
+    return JSON.parse(signals);
+  } catch (e) {
+    return [];
+  }
 }
 
 // Skeleton components for loading states
