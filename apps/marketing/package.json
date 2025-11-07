@@ -1,0 +1,35 @@
+{
+  "name": "@akaind/marketing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing website for AKA Industries",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@akaind/ui": "workspace:*",
+    "@akaind/analytics": "workspace:*",
+    "next-i18next": "^15.2.0",
+    "contentful": "^10.6.0",
+    "framer-motion": "^10.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.2.17",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4",
+    "@playwright/test": "^1.40.0",
+    "eslint": "^8.55.0",
+    "eslint-config-next": "^14.0.4"
+  }
+}

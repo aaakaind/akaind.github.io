@@ -1,37 +1,265 @@
-# aaakaind.github.io
+# AKA Industries Enterprise Platform
 
-## Deployment
+Enterprise-grade digital platform for advanced technology company, featuring marketing site, SaaS console, developer hub, and partner portal.
 
-This site is automatically deployed to GitHub Pages using GitHub Actions. The deployment workflow (`.github/workflows/deploy.yml`) runs automatically when changes are pushed to the `main` branch.
+## 🚀 Quick Start
 
-### How Deployment Works
+```bash
+# Install dependencies
+npm install
 
-1. When code is pushed to the `main` branch, the GitHub Actions workflow is triggered
-2. The workflow checks out the repository
-3. It configures GitHub Pages settings
-4. It uploads the site files as an artifact
-5. Finally, it deploys the site to GitHub Pages
+# Start development servers
+npm run dev
 
-The site will be available at:
-- Primary URL: https://aaakaind.github.io
-- Custom domain: https://www.akaind.ca (when DNS is configured)
+# Build for production
+npm run build
 
-### Manual Deployment
+# Run tests
+npm test
+```
 
-You can also trigger a deployment manually:
-1. Go to the Actions tab in the GitHub repository
-2. Select the "Deploy static content to Pages" workflow
-3. Click "Run workflow" and select the `main` branch
+## 📁 Project Structure
 
-## Custom Domain Setup with CNAME
+```
+├── apps/                       # Application packages
+│   ├── marketing/             # Public marketing website
+│   ├── console/               # Product console (SaaS dashboard)
+│   ├── developer-hub/         # Developer documentation & tools
+│   └── partner-portal/        # Partner & marketplace portal
+├── packages/                   # Shared libraries
+│   ├── ui/                    # Component library
+│   ├── auth/                  # Authentication & authorization
+│   ├── analytics/             # Analytics & personalization
+│   ├── sdk-core/              # Client SDKs
+│   └── widgets/               # Embeddable widgets
+├── infra/                     # Infrastructure as code
+│   ├── terraform/             # Terraform configurations
+│   ├── k8s/                   # Kubernetes manifests
+│   └── docker/                # Docker configurations
+└── docs/                      # Documentation
+    ├── architecture/          # Architecture docs
+    └── runbooks/              # Operational runbooks
+```
 
-This repository includes a CNAME file for setting up a custom domain with GitHub Pages.
+## 🏗️ Architecture
 
-### What is a CNAME file?
+This platform is built as a modular, extensible system:
 
-A CNAME file is used by GitHub Pages to configure a custom domain for your site. When present, GitHub Pages will serve your site at the domain specified in the CNAME file instead of the default `aaakaind.github.io` domain.
+- **Monorepo:** npm workspaces + Turbo for efficient builds
+- **Frontend:** React, Next.js, TypeScript
+- **Backend:** Node.js, PostgreSQL, Redis, Elasticsearch
+- **Infrastructure:** Kubernetes, Docker, Terraform
+- **CI/CD:** GitHub Actions with canary deployments
 
-### Current Setup
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed system design.
+
+## 🔑 Key Features
+
+### Marketing Site
+- CMS-driven content (Contentful/Strapi)
+- A/B testing and experiments
+- Internationalization (i18n)
+- Personalized experiences
+- SEO optimized
+
+### Product Console
+- Multi-tenant SaaS dashboard
+- Usage metrics and billing
+- Team and license management
+- Feature flags
+- In-app guides
+
+### Developer Hub
+- Interactive API documentation
+- REST and GraphQL explorers
+- Client SDKs (TypeScript, Python, Go)
+- Code samples and playground
+- Sandbox environment
+
+### Partner Portal
+- Partner onboarding workflow
+- App marketplace
+- Revenue share tracking
+- Embeddable widgets
+- Webhook integrations
+
+## 🔐 Security
+
+- SSO/SAML integration
+- Multi-factor authentication (MFA)
+- RBAC with granular permissions
+- SCIM provisioning
+- Audit logging
+- Encryption at rest and in transit
+- Rate limiting and DDoS protection
+
+See [Security documentation](./docs/SECURITY.md) for details.
+
+## 🧪 Testing
+
+```bash
+# Unit tests
+npm test
+
+# E2E tests
+npm run test:e2e
+
+# Type checking
+npm run typecheck
+
+# Linting
+npm run lint
+```
+
+## 📦 Deployment
+
+### Local Development
+
+```bash
+# Start all services with Docker Compose
+npm run docker:up
+
+# Or start individual services
+npm run dev
+```
+
+### Staging Deployment
+
+```bash
+# Deploy to staging
+npm run deploy:canary
+
+# Run smoke tests
+npm run test:smoke -- --env=staging
+```
+
+### Production Deployment
+
+The platform uses automated CI/CD with canary deployments:
+
+1. Push to `main` branch triggers CI/CD pipeline
+2. Automated tests run (lint, unit, integration)
+3. Docker images built and pushed to registry
+4. Canary deployment to 10% of production traffic
+5. Automated monitoring for 15 minutes
+6. Progressive rollout to 100% if healthy
+7. Automatic rollback on failure
+
+See [Deployment Runbook](./docs/runbooks/DEPLOYMENT.md) for detailed procedures.
+
+### Infrastructure
+
+```bash
+# Initialize Terraform
+cd infra/terraform
+terraform init
+
+# Plan infrastructure changes
+terraform plan
+
+# Apply changes
+terraform apply
+
+# Deploy to Kubernetes
+kubectl apply -f infra/k8s/
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run tests and linting (`npm test && npm run lint`)
+5. Commit with conventional commits (`git commit -m "feat: add amazing feature"`)
+6. Push to your fork (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Code Quality Standards
+
+- Maintain >80% test coverage
+- Follow TypeScript strict mode
+- Use Prettier for formatting
+- Pass all ESLint checks
+- Document public APIs
+
+## 📚 Documentation
+
+- **[Architecture](./ARCHITECTURE.md)** - System design and patterns
+- **[Contributing](./CONTRIBUTING.md)** - Development guidelines
+- **[Roadmap](./ROADMAP.md)** - Feature roadmap and timeline
+- **[Deployment](./docs/runbooks/DEPLOYMENT.md)** - Deployment procedures
+- **[API Documentation](https://developers.akaind.ca)** - API reference
+
+## 📊 Monitoring & Observability
+
+- **Metrics:** Prometheus + Grafana
+- **Logs:** ELK Stack (Elasticsearch, Logstash, Kibana)
+- **Traces:** Jaeger distributed tracing
+- **Alerts:** PagerDuty for critical issues
+- **Uptime:** StatusPage for status updates
+
+## 🛠️ Technology Stack
+
+### Frontend
+- **Framework:** React 18, Next.js 14
+- **Language:** TypeScript 5
+- **Styling:** Tailwind CSS, Framer Motion
+- **State:** Zustand, TanStack Query
+- **Testing:** Vitest, Playwright
+
+### Backend
+- **Runtime:** Node.js 18+
+- **Database:** PostgreSQL 16, Redis 7
+- **Search:** Elasticsearch 8
+- **Queue:** BullMQ
+- **Auth:** JWT, OAuth2, SAML
+
+### Infrastructure
+- **Cloud:** AWS (EKS, RDS, ElastiCache, S3)
+- **Container:** Docker, Kubernetes
+- **IaC:** Terraform
+- **CI/CD:** GitHub Actions
+- **CDN:** CloudFront
+
+### Observability
+- **Metrics:** Prometheus, Grafana
+- **Logging:** Elasticsearch, Fluentd
+- **Tracing:** Jaeger, OpenTelemetry
+- **APM:** DataDog
+
+## 📈 Performance Targets
+
+- **Page Load:** < 2s (LCP)
+- **API Response:** < 200ms (P95)
+- **Uptime:** 99.9% SLA
+- **Error Rate:** < 0.1%
+
+## 🔗 Links
+
+- **Website:** https://www.akaind.ca
+- **Console:** https://console.akaind.ca
+- **Developers:** https://developers.akaind.ca
+- **Partners:** https://partners.akaind.ca
+- **Status:** https://status.akaind.ca
+
+## 📄 License
+
+Proprietary - All rights reserved by AKA Industries
+
+## 💬 Support
+
+- **Email:** support@akaind.ca
+- **Docs:** https://docs.akaind.ca
+- **Community:** https://community.akaind.ca
+- **Status:** https://status.akaind.ca
+
+---
+
+## Legacy: Custom Domain Setup with CNAME
 
 The CNAME file in this repository is currently set to: **www.akaind.ca**
 

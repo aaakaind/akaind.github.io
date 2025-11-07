@@ -1,4 +1,55 @@
 {
+  "name": "@akaind/enterprise-platform",
+  "version": "1.0.0",
+  "description": "Enterprise-grade digital platform for AKA Industries",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "deploy:canary": "turbo run deploy --filter=...^[HEAD~1]",
+    "deploy:prod": "turbo run deploy",
+    "infra:plan": "cd infra && terraform plan",
+    "infra:apply": "cd infra && terraform apply",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "k8s:deploy": "kubectl apply -f k8s/",
+    "security:scan": "npm audit && snyk test",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "prettier": "^3.1.0",
+    "turbo": "^1.11.0",
+    "typescript": "^5.3.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aaakaind/akaind.github.io"
+  },
+  "keywords": [
+    "enterprise",
+    "platform",
+    "saas",
+    "multi-tenant",
+    "developer-hub",
+    "partner-portal"
+  ],
+  "author": "AKA Industries",
+  "license": "PROPRIETARY"
   "name": "akaind-website",
   "version": "1.0.0",
   "description": "AKA INDUSTRIES - Advanced Technology Solutions for Tomorrow",
