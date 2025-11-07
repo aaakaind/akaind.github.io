@@ -100,6 +100,10 @@ export class MCPSessionManager {
       timestamp: new Date()
     });
 
+    if (!this.session) {
+      throw new Error('Session not initialized');
+    }
+
     return this.session;
   }
 
