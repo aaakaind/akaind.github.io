@@ -13,3 +13,6 @@ Thumbs.db
 *.tmp
 *.bak
 *.log
+
+# Node modules
+node_modules/

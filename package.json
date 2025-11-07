@@ -1,0 +1,24 @@
+{
+  "name": "akaind-website",
+  "version": "1.0.0",
+  "description": "AKA INDUSTRIES - Advanced Technology Solutions for Tomorrow",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaakaind/akaind.github.io.git"
+  },
+  "keywords": [
+    "static-site",
+    "portfolio",
+    "technology"
+  ],
+  "author": "AKAIND",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaakaind/akaind.github.io/issues"
+  },
+  "homepage": "https://github.com/aaakaind/akaind.github.io#readme"
+}
