@@ -198,7 +198,7 @@ SELECT
     'admin@demo-corp.com',
     'Admin User',
     'admin',
-    '$2a$10$rqE5LqLZVlZZVZVZVZVZVePQhXwXwXwXwXwXwXwXwXwXwXwXwXw'
+    '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy'
 FROM tenants t
 WHERE t.slug = 'demo-corp'
 ON CONFLICT (tenant_id, email) DO NOTHING;
