@@ -31,6 +31,16 @@ out/
 .turbo/
 *.tsbuildinfo
 
+# TypeScript build artifacts
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+# But keep config files
+!*.config.js
+!next.config.js
+!vite.config.js
+
 # Environment and secrets
 .env
 .env.local
