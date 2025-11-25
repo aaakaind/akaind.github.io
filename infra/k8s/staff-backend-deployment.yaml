@@ -1,0 +1,192 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: staff-backend-config
+  namespace: akaind-platform
+data:
+  NODE_ENV: "production"
+  PORT: "3000"
+  LOG_LEVEL: "info"
+  LOG_FORMAT: "json"
+  RATE_LIMIT_WINDOW: "60000"
+  RATE_LIMIT_MAX_REQUESTS: "100"
+  BCRYPT_ROUNDS: "10"
+  JWT_EXPIRES_IN: "7d"
+  CORS_CREDENTIALS: "true"
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: staff-backend-secrets
+  namespace: akaind-platform
+type: Opaque
+stringData:
+  # IMPORTANT: Do NOT set secrets here. Create this secret externally before deployment.
+  # Use external secret management like AWS Secrets Manager, HashiCorp Vault, or Sealed Secrets
+  # Example: kubectl create secret generic staff-backend-secrets --from-literal=DATABASE_URL=... --from-literal=JWT_SECRET=...
+  # DATABASE_URL and JWT_SECRET must be set via kubectl or secret manager.
+  # CORS_ORIGINS can be set here if not sensitive:
+  CORS_ORIGINS: "https://console.akaind.ca,https://www.akaind.ca"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staff-backend
+  namespace: akaind-platform
+  labels:
+    app: staff-backend
+    component: api
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: staff-backend
+  template:
+    metadata:
+      labels:
+        app: staff-backend
+        component: api
+    spec:
+      containers:
+      - name: staff-backend
+        image: akaind/staff-backend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: staff-backend-config
+        - secretRef:
+            name: staff-backend-secrets
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1001
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL
+        volumeMounts:
+        - name: logs
+          mountPath: /app/logs
+      volumes:
+      - name: logs
+        emptyDir: {}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - staff-backend
+              topologyKey: kubernetes.io/hostname
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: staff-backend
+  namespace: akaind-platform
+  labels:
+    app: staff-backend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: staff-backend
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: staff-backend-hpa
+  namespace: akaind-platform
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: staff-backend
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: staff-backend-ingress
+  namespace: akaind-platform
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+  - hosts:
+    - api.akaind.ca
+    secretName: staff-backend-tls
+  rules:
+  - host: api.akaind.ca
+    http:
+      paths:
+      - path: /api/v1/staff
+        pathType: Prefix
+        backend:
+          service:
+            name: staff-backend
+            port:
+              number: 80
