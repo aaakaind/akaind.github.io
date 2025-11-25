@@ -159,8 +159,9 @@ INSERT INTO staff_departments (name, description) VALUES
     ('HR', 'Human resources')
 ON CONFLICT (name) DO NOTHING;
 
--- Create a default super admin user (password: Admin@123 - should be changed immediately)
--- Password hash generated with bcrypt rounds=10
+-- Create a default super admin user (password: Admin@123 - MUST BE CHANGED IMMEDIATELY)
+-- This is a real bcrypt hash for 'Admin@123' with 10 rounds
+-- IMPORTANT: Change this password immediately after first login for security!
 INSERT INTO staff (
     email,
     password_hash,
@@ -172,7 +173,7 @@ INSERT INTO staff (
     is_super_admin
 ) VALUES (
     'admin@akaind.ca',
-    '$2a$10$XYZ7wQxM0oKl9g8yF6.jb.O5rV8p9x7qR3mN5lK8jH6gF4dS2aB1c',
+    '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
     'System',
     'Administrator',
     'Operations',

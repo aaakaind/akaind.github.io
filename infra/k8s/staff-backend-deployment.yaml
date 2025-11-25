@@ -22,8 +22,11 @@ metadata:
   namespace: akaind-platform
 type: Opaque
 stringData:
-  DATABASE_URL: "postgresql://akaind:password@postgres:5432/platform"
-  JWT_SECRET: "your-super-secret-jwt-key-change-this-in-production"
+  # IMPORTANT: These are placeholders and MUST be replaced with actual secure values
+  # Use external secret management like AWS Secrets Manager, HashiCorp Vault, or Sealed Secrets
+  # Example: kubectl create secret generic staff-backend-secrets --from-literal=DATABASE_URL=... --from-literal=JWT_SECRET=...
+  DATABASE_URL: "REPLACE_WITH_ACTUAL_DATABASE_URL"
+  JWT_SECRET: "REPLACE_WITH_SECURE_RANDOM_JWT_SECRET"
   CORS_ORIGINS: "https://console.akaind.ca,https://www.akaind.ca"
 
 ---

@@ -342,8 +342,8 @@ DATABASE_POOL_MAX=10
 DATABASE_POOL_MIN=2
 DATABASE_SSL=false
 
-# Authentication
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+# Authentication (REQUIRED - no default)
+JWT_SECRET=your-super-secret-jwt-key-CHANGE-THIS
 JWT_EXPIRES_IN=7d
 BCRYPT_ROUNDS=10
 
@@ -360,6 +360,18 @@ LOG_LEVEL=info
 LOG_FORMAT=json
 LOG_FILE=logs/app.log
 ```
+
+**⚠️ CRITICAL SECURITY NOTES:**
+
+1. **JWT_SECRET is required** - The application will fail to start if this is not set. Generate a secure random string (at least 32 characters):
+   ```bash
+   # Generate secure JWT secret
+   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+   ```
+
+2. **Change default admin password** - The default admin account (`admin@akaind.ca` / `Admin@123`) must be changed immediately after deployment.
+
+3. **Use external secret management** in production (AWS Secrets Manager, HashiCorp Vault, etc.) instead of plain text environment variables.
 
 ## Database Schema
 

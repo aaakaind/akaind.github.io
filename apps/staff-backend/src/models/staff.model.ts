@@ -349,7 +349,7 @@ export class StaffModel {
    * Get all permissions for a staff member
    */
   static async getPermissions(staffId: string): Promise<string[]> {
-    const result = await query<{ permissions: string[] }>(
+    const result = await query<{ permission: string }>(
       `SELECT DISTINCT unnest(r.permissions::text[]) as permission
        FROM staff_roles r
        JOIN staff_role_assignments sra ON sra.role_id = r.id
@@ -357,6 +357,6 @@ export class StaffModel {
       [staffId]
     );
 
-    return result.map((row) => row.permissions).flat();
+    return result.map((row) => row.permission);
   }
 }
