@@ -276,9 +276,9 @@ export class StaffModel {
 
     if (options.search) {
       conditions.push(
-        `(first_name ILIKE $${paramCount} OR last_name ILIKE $${paramCount} OR email ILIKE $${paramCount})`
+        `to_tsvector('english', coalesce(first_name,'') || ' ' || coalesce(last_name,'') || ' ' || coalesce(email,'')) @@ plainto_tsquery('english', $${paramCount})`
       );
-      values.push(`%${options.search}%`);
+      values.push(options.search);
       paramCount++;
     }
 
