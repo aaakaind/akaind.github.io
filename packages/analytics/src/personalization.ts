@@ -190,7 +190,7 @@ export class PersonalizationEngine {
    */
   private async getIntentBasedRecommendations(
     signal: string,
-    context: UserContext
+    _context: UserContext
   ): Promise<Recommendation[]> {
     const intentMap: Record<string, Recommendation[]> = {
       'pricing': [
@@ -239,7 +239,7 @@ export class PersonalizationEngine {
    */
   private async getRoleBasedRecommendations(
     role: string,
-    context: UserContext
+    _context: UserContext
   ): Promise<Recommendation[]> {
     const roleMap: Record<string, Recommendation[]> = {
       'developer': [
@@ -281,8 +281,8 @@ export class PersonalizationEngine {
    * Get collaborative filtering recommendations
    */
   private async getCollaborativeRecommendations(
-    userId: string,
-    tenantId: string
+    _userId: string,
+    _tenantId: string
   ): Promise<Recommendation[]> {
     // In production, this would use ML models or vector similarity
     // For now, return empty array

@@ -126,7 +126,8 @@ export class PartnerOnboardingFlow {
       this.state.currentStep = 'verification';
       await this.saveState();
     } catch (error) {
-      throw new Error(`Profile submission failed: ${error.message}`);
+      const message = error instanceof Error ? error.message : String(error);
+      throw new Error(`Profile submission failed: ${message}`);
     }
   }
 
@@ -195,7 +196,8 @@ export class PartnerOnboardingFlow {
       this.state.currentStep = 'revenue-share';
       await this.saveState();
     } catch (error) {
-      throw new Error(`App submission failed: ${error.message}`);
+      const message = error instanceof Error ? error.message : String(error);
+      throw new Error(`App submission failed: ${message}`);
     }
   }
 
@@ -228,7 +230,8 @@ export class PartnerOnboardingFlow {
       this.state.currentStep = 'review';
       await this.saveState();
     } catch (error) {
-      throw new Error(`Revenue share configuration failed: ${error.message}`);
+      const message = error instanceof Error ? error.message : String(error);
+      throw new Error(`Revenue share configuration failed: ${message}`);
     }
   }
 
@@ -336,7 +339,8 @@ export class PartnerOnboardingFlow {
         throw new Error('Webhook validation failed');
       }
     } catch (error) {
-      throw new Error(`Invalid webhook URL: ${error.message}`);
+      const message = error instanceof Error ? error.message : String(error);
+      throw new Error(`Invalid webhook URL: ${message}`);
     }
   }
 

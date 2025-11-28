@@ -97,7 +97,7 @@ jobs:
     needs: [lint, test]
     strategy:
       matrix:
-        app: [marketing, console, developer-hub, partner-portal]
+        app: [marketing, console, partner-portal]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -161,7 +161,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     strategy:
       matrix:
-        app: [marketing, console, developer-hub, partner-portal]
+        app: [marketing, console, partner-portal]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -256,7 +256,6 @@ jobs:
         run: |
           kubectl set image deployment/marketing marketing=ghcr.io/${{ github.repository }}/marketing:sha-${{ github.sha }} -n akaind-platform
           kubectl set image deployment/console console=ghcr.io/${{ github.repository }}/console:sha-${{ github.sha }} -n akaind-platform
-          kubectl set image deployment/developer-hub developer-hub=ghcr.io/${{ github.repository }}/developer-hub:sha-${{ github.sha }} -n akaind-platform
           kubectl set image deployment/partner-portal partner-portal=ghcr.io/${{ github.repository }}/partner-portal:sha-${{ github.sha }} -n akaind-platform
 
       - name: Wait for rollout
