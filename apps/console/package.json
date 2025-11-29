@@ -16,9 +16,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",
-    "@akaind/ui": "workspace:*",
-    "@akaind/auth": "workspace:*",
-    "@akaind/analytics": "workspace:*",
+    "@akaind/ui": "*",
+    "@akaind/auth": "*",
+    "@akaind/analytics": "*",
     "@tanstack/react-query": "^5.13.0",
     "recharts": "^2.10.3",
     "zustand": "^4.4.7"
