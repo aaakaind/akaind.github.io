@@ -31,13 +31,11 @@
             <div class="logo">AKA INDUSTRIES</div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#showcase">Showcase</a></li>
+                <li><a href="#infrastructure">Infrastructure</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#games">Games</a></li>
-                <li><a href="#ai-solutions">AI Solutions</a></li>
-                <li><a href="#autonomous">Autonomous</a></li>
-                <li><a href="#manufacturing">Manufacturing</a></li>
+                <li><a href="#pitch">Pitch Deck</a></li>
                 <li><a href="#systems">Systems</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -49,68 +47,84 @@
         <section id="home" class="section hero-section">
             <div class="section-content">
                 <div class="hero-3d-element"></div>
-                <h1 class="hero-title">Building the Future</h1>
-                <p class="hero-subtitle">Advanced Technology Solutions for Tomorrow</p>
+                <h1 class="hero-title">Enterprise Technology Platform</h1>
+                <p class="hero-subtitle">Powered by Scalable Backend Infrastructure</p>
                 <p class="hero-description">
-                    We build user-centered products, software, and solutions that advance technological development
+                    We deliver enterprise-grade solutions built on a robust, modular backend architecture. 
+                    From AI-powered applications to autonomous systems, our platform scales to meet the most demanding requirements.
                 </p>
-                <a href="#products" class="cta-button">Explore Our Work</a>
+                <a href="#infrastructure" class="cta-button">Explore Our Platform</a>
             </div>
         </section>
 
-        <!-- Slideshow Section -->
-        <section id="showcase" class="section slideshow-section">
+        <!-- Infrastructure Section -->
+        <section id="infrastructure" class="section infrastructure-section">
             <div class="section-content">
-                <h2 class="section-title">Our Innovation Showcase</h2>
-                <div class="slideshow-container">
-                    <div class="slide fade">
-                        <div class="slide-content">
-                            <div class="slide-icon">🤖</div>
-                            <h3>AI-Powered Solutions</h3>
-                            <p>Cutting-edge artificial intelligence systems that transform how businesses operate</p>
-                        </div>
+                <h2 class="section-title">Robust Backend Infrastructure</h2>
+                <p class="section-subtitle">
+                    Enterprise-grade architecture designed for scale, reliability, and performance
+                </p>
+                <div class="infrastructure-grid">
+                    <div class="infra-card">
+                        <div class="infra-icon">🏗️</div>
+                        <h3>Microservices Architecture</h3>
+                        <p>Modular, scalable services built with Docker and Kubernetes for maximum flexibility and resilience</p>
+                        <ul class="tech-stack">
+                            <li>Node.js / TypeScript</li>
+                            <li>PostgreSQL / Redis</li>
+                            <li>Elasticsearch</li>
+                        </ul>
                     </div>
-                    <div class="slide fade">
-                        <div class="slide-content">
-                            <div class="slide-icon">🚗</div>
-                            <h3>Autonomous Driving</h3>
-                            <p>Next-generation vehicle automation technology for safer roads</p>
-                        </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">☁️</div>
+                        <h3>Cloud-Native Platform</h3>
+                        <p>Multi-cloud deployment with AWS, auto-scaling, and global CDN for optimal performance</p>
+                        <ul class="tech-stack">
+                            <li>AWS EKS / RDS</li>
+                            <li>CloudFront CDN</li>
+                            <li>Auto-scaling Groups</li>
+                        </ul>
                     </div>
-                    <div class="slide fade">
-                        <div class="slide-content">
-                            <div class="slide-icon">⚡</div>
-                            <h3>Smart Manufacturing</h3>
-                            <p>Revolutionary production systems powered by intelligent automation</p>
-                        </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">🔒</div>
+                        <h3>Security & Compliance</h3>
+                        <p>Enterprise security with SSO, MFA, RBAC, and comprehensive audit logging</p>
+                        <ul class="tech-stack">
+                            <li>OAuth2 / SAML</li>
+                            <li>Multi-Factor Auth</li>
+                            <li>End-to-end Encryption</li>
+                        </ul>
                     </div>
-                    <div class="slide fade">
-                        <div class="slide-content">
-                            <div class="slide-icon">🔬</div>
-                            <h3>Research &amp; Development</h3>
-                            <p>Pioneering tomorrow's technologies through innovative research</p>
-                        </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">📊</div>
+                        <h3>Real-Time Analytics</h3>
+                        <p>Advanced monitoring, metrics, and observability with distributed tracing</p>
+                        <ul class="tech-stack">
+                            <li>Prometheus / Grafana</li>
+                            <li>Elasticsearch / Kibana</li>
+                            <li>Jaeger Tracing</li>
+                        </ul>
                     </div>
-                    <div class="slide fade">
-                        <div class="slide-content">
-                            <div class="slide-icon">🌐</div>
-                            <h3>Connected Ecosystems</h3>
-                            <p>Integrated technology platforms that work seamlessly together</p>
-                        </div>
+                    <div class="infra-card">
+                        <div class="infra-icon">⚡</div>
+                        <h3>High Performance</h3>
+                        <p>Optimized for speed with caching, load balancing, and edge computing</p>
+                        <ul class="tech-stack">
+                            <li>Redis Caching</li>
+                            <li>NGINX Load Balancer</li>
+                            <li>Edge Functions</li>
+                        </ul>
                     </div>
-
-                    <!-- Navigation Arrows -->
-                    <a class="prev-slide" onclick="changeSlide(-1)">❮</a>
-                    <a class="next-slide" onclick="changeSlide(1)">❯</a>
-                </div>
-
-                <!-- Dots Indicators -->
-                <div class="dots-container">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <div class="infra-card">
+                        <div class="infra-icon">🔄</div>
+                        <h3>CI/CD Pipeline</h3>
+                        <p>Automated testing, deployment, and canary releases for zero-downtime updates</p>
+                        <ul class="tech-stack">
+                            <li>GitHub Actions</li>
+                            <li>Docker Registry</li>
+                            <li>Automated Rollbacks</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -223,92 +237,105 @@
             </div>
         </section>
 
-        <!-- AI Solutions Section -->
-        <section id="ai-solutions" class="section ai-section">
+        <!-- Pitch Deck Section -->
+        <section id="pitch" class="section pitch-section">
             <div class="section-content">
-                <h2 class="section-title">Predictive &amp; Agentic AI</h2>
-                <div class="ai-features">
-                    <div class="ai-feature">
-                        <div class="ai-cube"></div>
-                        <h3>Predictive Intelligence</h3>
-                        <p>Advanced machine learning models that anticipate user needs and optimize outcomes</p>
+                <h2 class="section-title">Investment Opportunity</h2>
+                <p class="section-subtitle">
+                    Powering the next generation of enterprise technology solutions
+                </p>
+                
+                <div class="pitch-grid">
+                    <div class="pitch-card highlight-card">
+                        <div class="pitch-icon">🎯</div>
+                        <h3>Our Mission</h3>
+                        <p>To deliver enterprise-grade technology solutions that empower businesses to innovate, scale, and compete in the digital age through robust backend infrastructure and AI-powered platforms.</p>
                     </div>
-                    <div class="ai-feature">
-                        <div class="ai-cube"></div>
-                        <h3>Agentic Systems</h3>
-                        <p>Autonomous AI agents that reason, plan, and execute complex tasks independently</p>
+                    
+                    <div class="pitch-card">
+                        <div class="pitch-icon">📈</div>
+                        <h3>Market Opportunity</h3>
+                        <p><strong>$500B+</strong> Global enterprise software market</p>
+                        <p><strong>15% CAGR</strong> Expected growth through 2030</p>
+                        <p>Growing demand for scalable, AI-powered enterprise platforms</p>
                     </div>
-                    <div class="ai-feature">
-                        <div class="ai-cube"></div>
-                        <h3>Intelligent Software</h3>
-                        <p>AI-powered applications that learn and adapt to user behavior in real-time</p>
+                    
+                    <div class="pitch-card">
+                        <div class="pitch-icon">💡</div>
+                        <h3>Our Solution</h3>
+                        <p>Multi-tenant SaaS platform with:</p>
+                        <ul class="pitch-list">
+                            <li>Microservices architecture</li>
+                            <li>AI/ML integration</li>
+                            <li>Real-time analytics</li>
+                            <li>Enterprise security</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Autonomous Vehicles Section -->
-        <section id="autonomous" class="section autonomous-section">
-            <div class="section-content">
-                <h2 class="section-title">Autonomous Vehicle Technology</h2>
-                <div class="autonomous-content">
-                    <div class="autonomous-visual">
-                        <div class="vehicle-3d"></div>
+                    
+                    <div class="pitch-card">
+                        <div class="pitch-icon">🏆</div>
+                        <h3>Competitive Advantage</h3>
+                        <ul class="pitch-list">
+                            <li><strong>Modular Architecture:</strong> Flexible, scalable infrastructure</li>
+                            <li><strong>AI-First:</strong> Built-in predictive and agentic AI</li>
+                            <li><strong>Developer-Friendly:</strong> Comprehensive SDKs and APIs</li>
+                            <li><strong>Multi-Cloud:</strong> Vendor-agnostic deployment</li>
+                        </ul>
                     </div>
-                    <div class="autonomous-text">
-                        <h3>Next-Generation Mobility</h3>
-                        <p>
-                            Long-term research and development project focused on creating modular autonomous
-                            vehicle systems that seamlessly integrate with modern vehicles.
-                        </p>
-                        <ul class="feature-list">
-                            <li>Advanced sensor fusion and perception systems</li>
-                            <li>Real-time decision making and path planning</li>
-                            <li>Modular architecture for easy integration</li>
-                            <li>Safety-first design with redundant systems</li>
+                    
+                    <div class="pitch-card">
+                        <div class="pitch-icon">💰</div>
+                        <h3>Revenue Model</h3>
+                        <p><strong>SaaS Subscriptions:</strong> Tiered pricing (Starter, Pro, Enterprise)</p>
+                        <p><strong>Usage-Based:</strong> API calls, compute, storage</p>
+                        <p><strong>Professional Services:</strong> Custom integration & consulting</p>
+                        <p><strong>Marketplace:</strong> Partner apps and plugins (revenue share)</p>
+                    </div>
+                    
+                    <div class="pitch-card">
+                        <div class="pitch-icon">🚀</div>
+                        <h3>Traction & Milestones</h3>
+                        <ul class="pitch-list">
+                            <li>✓ Core platform architecture complete</li>
+                            <li>✓ Multi-tenant infrastructure deployed</li>
+                            <li>✓ Developer hub and documentation live</li>
+                            <li>→ Beta customers onboarding Q1 2026</li>
+                            <li>→ General availability Q2 2026</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pitch-card">
+                        <div class="pitch-icon">👥</div>
+                        <h3>Team</h3>
+                        <p>Experienced engineers and entrepreneurs with backgrounds in:</p>
+                        <ul class="pitch-list">
+                            <li>Enterprise software development</li>
+                            <li>Cloud infrastructure & DevOps</li>
+                            <li>AI/ML engineering</li>
+                            <li>Product management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pitch-card">
+                        <div class="pitch-icon">💵</div>
+                        <h3>Investment Ask</h3>
+                        <p><strong>Seeking: $2M - $5M</strong> Seed Round</p>
+                        <p><strong>Use of Funds:</strong></p>
+                        <ul class="pitch-list">
+                            <li>40% Engineering & Product Development</li>
+                            <li>30% Sales & Marketing</li>
+                            <li>20% Infrastructure & Operations</li>
+                            <li>10% Legal, Admin & Reserves</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Advanced Manufacturing Section -->
-        <section id="manufacturing" class="section manufacturing-section">
-            <div class="section-content">
-                <h2 class="section-title">Advanced Manufacturing &amp; Technology</h2>
-                <p class="section-subtitle">
-                    Bringing high-quality products to businesses and consumers through cutting-edge manufacturing technology
-                </p>
-                <div class="manufacturing-grid">
-                    <div class="manufacturing-card">
-                        <div class="manufacturing-icon">⚙️</div>
-                        <h3>New Technologies</h3>
-                        <p>Leveraging the latest innovations in manufacturing to create superior products with precision and efficiency</p>
-                    </div>
-                    <div class="manufacturing-card">
-                        <div class="manufacturing-icon">🏭</div>
-                        <h3>Advanced Manufacturing</h3>
-                        <p>State-of-the-art production facilities utilizing automation and intelligent systems for consistent quality</p>
-                    </div>
-                    <div class="manufacturing-card">
-                        <div class="manufacturing-icon">🎖️</div>
-                        <h3>Quality Excellence</h3>
-                        <p>Rigorous quality control processes ensuring every product meets the highest standards for businesses and consumers</p>
-                    </div>
-                    <div class="manufacturing-card">
-                        <div class="manufacturing-icon">🌟</div>
-                        <h3>Business Solutions</h3>
-                        <p>Enterprise-grade manufacturing solutions designed to scale with your business needs</p>
-                    </div>
-                    <div class="manufacturing-card">
-                        <div class="manufacturing-icon">👥</div>
-                        <h3>Consumer Products</h3>
-                        <p>High-quality products designed with the end user in mind, combining innovation with reliability</p>
-                    </div>
-                    <div class="manufacturing-card">
-                        <div class="manufacturing-icon">🔬</div>
-                        <h3>R&amp;D Excellence</h3>
-                        <p>Continuous research and development to stay at the forefront of manufacturing technology</p>
+                
+                <div class="pitch-cta">
+                    <h3>Ready to Learn More?</h3>
+                    <p>Download our complete pitch deck or schedule a meeting with our team</p>
+                    <div class="pitch-buttons">
+                        <a href="#contact" class="pitch-button primary">Schedule Meeting</a>
+                        <a href="#contact" class="pitch-button secondary">Download Deck</a>
                     </div>
                 </div>
             </div>

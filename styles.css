@@ -1195,3 +1195,213 @@ body {
     font-weight: 600;
     border: 1px solid var(--cool-purple);
 }
+
+/* Infrastructure Section */
+.infrastructure-section {
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+}
+
+.infrastructure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.infra-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--cool-blue);
+}
+
+.infra-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.infra-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.infra-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-black);
+}
+
+.infra-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.tech-stack {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.tech-stack li {
+    padding: 0.5rem 0;
+    color: var(--cool-blue);
+    font-weight: 500;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.tech-stack li:last-child {
+    border-bottom: none;
+}
+
+.tech-stack li:before {
+    content: "▸ ";
+    color: var(--cool-teal);
+    font-weight: bold;
+}
+
+/* Pitch Deck Section */
+.pitch-section {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe9e9 100%);
+}
+
+.pitch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.pitch-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 3px solid var(--cool-blue);
+}
+
+.pitch-card.highlight-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    grid-column: span 2;
+}
+
+.pitch-card.highlight-card h3,
+.pitch-card.highlight-card p {
+    color: white;
+}
+
+.pitch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.pitch-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.pitch-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-black);
+}
+
+.pitch-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.pitch-card strong {
+    color: var(--cool-blue);
+    font-weight: 700;
+}
+
+.pitch-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.pitch-list li {
+    padding: 0.5rem 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+.pitch-list li:before {
+    content: "✓ ";
+    color: var(--cool-teal);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.pitch-cta {
+    margin-top: 4rem;
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pitch-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-black);
+}
+
+.pitch-cta p {
+    font-size: 1.125rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.pitch-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pitch-button {
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.pitch-button.primary {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+.pitch-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+.pitch-button.secondary {
+    background: white;
+    color: var(--cool-blue);
+    border: 2px solid var(--cool-blue);
+}
+
+.pitch-button.secondary:hover {
+    background: var(--cool-blue);
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .pitch-card.highlight-card {
+        grid-column: span 1;
+    }
+}
