@@ -289,7 +289,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: production-canary
-      url: https://staging.akaind.ca
+      url: https://www.akaind.ca
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -310,7 +310,7 @@ jobs:
 
       - name: Run smoke tests
         run: |
-          curl -f https://staging.akaind.ca/health || exit 1
+          curl -f https://www.akaind.ca/health || exit 1
 
   # Deploy to Production
   deploy-production:
