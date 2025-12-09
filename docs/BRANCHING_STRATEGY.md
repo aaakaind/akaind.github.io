@@ -429,7 +429,7 @@ git reset HEAD~1 --hard
 For questions about the branching strategy:
 - 💬 Slack: #platform-dev
 - 📧 Email: dev@akaind.ca
-- 📚 Docs: See [CONTRIBUTING.md](../../CONTRIBUTING.md)
+- 📚 Docs: See [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 ## References
 
