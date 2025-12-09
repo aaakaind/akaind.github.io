@@ -891,4 +891,114 @@ body {
         padding: 0.8rem 2rem;
         font-size: 0.9rem;
     }
+
+    /* Systems section for small mobile */
+    .systems-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .system-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Systems Access Section */
+.systems-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 4rem 2rem;
+}
+
+.systems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.system-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.system-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 102, 204, 0.2);
+    border-color: var(--cool-blue);
+}
+
+.system-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.system-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-black);
+}
+
+.system-url {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--cool-blue);
+    background: rgba(0, 102, 204, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.system-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+.access-tip {
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(0, 184, 169, 0.1));
+    border-left: 4px solid var(--cool-blue);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.tip-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.access-tip p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.access-tip code {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--cool-blue);
+    font-weight: 600;
 }
