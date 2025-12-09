@@ -2,6 +2,25 @@
 
 Enterprise-grade digital platform for advanced technology company, featuring marketing site, SaaS console, developer hub, and partner portal.
 
+## 🎯 Repository Setup (Important!)
+
+After cloning this repository, set up the branch structure:
+
+```bash
+# Run the automated setup script
+./scripts/setup-branches.sh
+```
+
+Or see [Branch Setup Guide](./docs/BRANCH_SETUP_GUIDE.md) for manual setup instructions.
+
+**Note for Repository Maintainers:** After merging the initial branching strategy PR, create the `develop` branch:
+```bash
+git checkout main
+git pull origin main
+git checkout -b develop main
+git push -u origin develop
+```
+
 ## 🚀 Quick Start
 
 ```bash
