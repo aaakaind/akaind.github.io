@@ -153,12 +153,15 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  # Docker Build
-  docker:
-    name: Build Docker Images
+  # Docker Build for Main (Production)
+  docker-production:
+    name: Build Docker Images (Production)
     runs-on: ubuntu-latest
     needs: [build, test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         app: [marketing, console, developer-hub, partner-portal]
@@ -199,15 +202,104 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  # Deploy to Staging (Canary)
-  deploy-canary:
-    name: Deploy Canary
+  # Docker Build for Develop (Staging)
+  docker-staging:
+    name: Build Docker Images (Staging)
     runs-on: ubuntu-latest
-    needs: [docker]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [build, test]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        app: [marketing, console, developer-hub, partner-portal]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}/${{ matrix.app }}
+          tags: |
+            type=ref,event=branch
+            type=sha
+            type=raw,value=staging
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./apps/${{ matrix.app }}/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # Deploy to Staging (from develop branch)
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [docker-staging]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    permissions:
+      contents: read
     environment:
       name: staging
       url: https://staging.akaind.ca
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure kubectl
+        uses: azure/setup-kubectl@v3
+
+      - name: Set up Kubernetes context
+        uses: azure/k8s-set-context@v3
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG_STAGING }}
+
+      - name: Deploy to staging
+        run: |
+          kubectl set image deployment/marketing marketing=ghcr.io/${{ github.repository }}/marketing:sha-${{ github.sha }} -n akaind-staging
+          kubectl set image deployment/console console=ghcr.io/${{ github.repository }}/console:sha-${{ github.sha }} -n akaind-staging
+          kubectl set image deployment/developer-hub developer-hub=ghcr.io/${{ github.repository }}/developer-hub:sha-${{ github.sha }} -n akaind-staging
+          kubectl set image deployment/partner-portal partner-portal=ghcr.io/${{ github.repository }}/partner-portal:sha-${{ github.sha }} -n akaind-staging
+
+      - name: Wait for rollout
+        run: |
+          kubectl rollout status deployment/marketing -n akaind-staging --timeout=5m
+          kubectl rollout status deployment/console -n akaind-staging --timeout=5m
+
+      - name: Run smoke tests
+        run: |
+          curl -f https://staging.akaind.ca/health || exit 1
+
+  # Deploy Canary to Production (from main branch)
+  deploy-canary:
+    name: Deploy Canary to Production
+    runs-on: ubuntu-latest
+    needs: [docker-production]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+    environment:
+      name: production-canary
+      url: https://www.akaind.ca
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -226,9 +318,10 @@ jobs:
           kubectl set image deployment/marketing marketing=ghcr.io/${{ github.repository }}/marketing:sha-${{ github.sha }} -n akaind-platform
           kubectl rollout status deployment/marketing -n akaind-platform --timeout=5m
 
-      - name: Run smoke tests
+      - name: Run smoke tests on production
         run: |
-          curl -f https://staging.akaind.ca/health || exit 1
+          # Test production health endpoint after canary deployment
+          curl -f https://www.akaind.ca/health || exit 1
 
   # Deploy to Production
   deploy-production:

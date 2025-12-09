@@ -4,6 +4,21 @@
 
 This runbook covers deployment procedures for the AKA Industries platform, including canary deployments, rollbacks, and emergency procedures.
 
+## Branch and Environment Mapping
+
+We follow a Git Flow-inspired branching strategy. For complete details, see [Branching Strategy](../BRANCHING_STRATEGY.md).
+
+| Branch | Environment | Deployment | URL |
+|--------|-------------|------------|-----|
+| `develop` | Staging/Development | Automatic on merge | https://staging.akaind.ca |
+| `main` | Production | Automatic with canary | https://www.akaind.ca |
+
+**Key Points:**
+- All development work is done in feature/upgrade branches from `develop`
+- Merges to `develop` trigger automatic deployment to staging
+- Merges to `main` trigger canary deployment to production
+- Hotfixes branch from `main` for critical production fixes
+
 ## Prerequisites
 
 - AWS CLI configured with appropriate credentials
@@ -29,10 +44,12 @@ This runbook covers deployment procedures for the AKA Industries platform, inclu
 
 #### 1. Canary Deployment to Staging
 
+**Note:** Staging deploys automatically from the `develop` branch. See [Branching Strategy](../BRANCHING_STRATEGY.md) for details.
+
 ```bash
-# Deploy to staging environment
-git checkout main
-git pull origin main
+# Deploy to staging environment (if manual deployment needed)
+git checkout develop
+git pull origin develop
 
 # Build and push Docker images
 npm run docker:build

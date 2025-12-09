@@ -216,10 +216,22 @@ Maintain at least 80% code coverage:
 
 ## Pull Request Process
 
+### Branching Strategy
+
+We follow a Git Flow-inspired approach. Please read the [Branching Strategy](./docs/BRANCHING_STRATEGY.md) documentation for complete details.
+
+**Quick Summary:**
+- **Feature development:** Branch from `develop`, merge back to `develop`
+- **Bug fixes:** Branch from `develop`, merge back to `develop`
+- **Hotfixes:** Branch from `main`, merge to `main` and `develop`
+- **Upgrades:** Branch from `develop`, merge back to `develop`
+
 ### Before Submitting
 
-1. **Create a feature branch**
+1. **Create a feature branch from `develop`**
    ```bash
+   git checkout develop
+   git pull origin develop
    git checkout -b feature/your-feature-name
    ```
 
