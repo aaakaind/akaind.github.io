@@ -159,6 +159,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         app: [marketing, console, developer-hub, partner-portal]
@@ -205,6 +208,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         app: [marketing, console, developer-hub, partner-portal]
@@ -249,6 +255,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [docker-staging]
     if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    permissions:
+      contents: read
     environment:
       name: staging
       url: https://staging.akaind.ca
@@ -287,6 +295,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [docker-production]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
     environment:
       name: production-canary
       url: https://www.akaind.ca
