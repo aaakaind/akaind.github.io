@@ -238,7 +238,62 @@ We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for gu
 - **Uptime:** 99.9% SLA
 - **Error Rate:** < 0.1%
 
-## 🔗 Links
+## 🌐 Accessing Different Systems
+
+The AKA Industries platform consists of multiple systems accessible through different web addresses. You can access each system by modifying the subdomain in the URL.
+
+### How to Access Different Systems
+
+Simply change the subdomain part of the URL to access different features and platforms:
+
+| System | URL | Access Method | Description |
+|--------|-----|---------------|-------------|
+| **Main Website** | `www.akaind.ca` | Default subdomain | Public marketing site with company information, products, and contact details |
+| **Product Console** | `console.akaind.ca` | Change `www` → `console` | SaaS dashboard for managing your account, usage metrics, billing, and licenses |
+| **Developer Hub** | `developers.akaind.ca` | Change `www` → `developers` | API documentation, SDKs, code samples, and interactive API explorer |
+| **Partner Portal** | `partners.akaind.ca` | Change `www` → `partners` | Partner onboarding, marketplace, revenue tracking, and integrations |
+| **System Status** | `status.akaind.ca` | Change `www` → `status` | Real-time system status, uptime monitoring, and incident reports |
+| **Documentation** | `docs.akaind.ca` | Change `www` → `docs` | Comprehensive documentation and user guides |
+| **Community** | `community.akaind.ca` | Change `www` → `community` | Community forums, discussions, and support |
+
+### Quick Access Examples
+
+Starting from the main website (`www.akaind.ca`):
+
+1. **To access the Product Console:**
+   - Current: `www.akaind.ca`
+   - Modified: `console.akaind.ca`
+   - Simply replace `www` with `console` in your browser's address bar
+
+2. **To view API documentation:**
+   - Current: `www.akaind.ca`
+   - Modified: `developers.akaind.ca`
+   - Simply replace `www` with `developers` in your browser's address bar
+
+3. **To check system status:**
+   - Current: `www.akaind.ca`
+   - Modified: `status.akaind.ca`
+   - Simply replace `www` with `status` in your browser's address bar
+
+### Understanding Subdomains
+
+A **subdomain** is the part of the URL that comes before the main domain name. In our case:
+
+```
+https://[subdomain].akaind.ca
+          ↑
+    This part changes to access different systems
+```
+
+**Examples:**
+- `www.akaind.ca` - Main website
+- `console.akaind.ca` - Product console
+- `developers.akaind.ca` - Developer resources
+- `partners.akaind.ca` - Partner portal
+
+All these addresses lead to different systems within the AKA Industries platform, each designed for specific purposes and user types.
+
+## 🔗 Quick Links
 
 - **Website:** https://www.akaind.ca
 - **Console:** https://console.akaind.ca
