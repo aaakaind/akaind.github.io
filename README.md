@@ -170,13 +170,15 @@ We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for gu
 
 ### Development Workflow
 
+We follow a Git Flow-inspired branching strategy. See [Branching Strategy](./docs/BRANCHING_STRATEGY.md) for details.
+
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+2. Create a feature branch from `develop` (`git checkout -b feature/amazing-feature`)
 3. Make your changes
 4. Run tests and linting (`npm test && npm run lint`)
 5. Commit with conventional commits (`git commit -m "feat: add amazing feature"`)
 6. Push to your fork (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
+7. Open a Pull Request to `develop`
 
 ### Code Quality Standards
 
@@ -190,6 +192,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for gu
 
 - **[Architecture](./ARCHITECTURE.md)** - System design and patterns
 - **[Contributing](./CONTRIBUTING.md)** - Development guidelines
+- **[Branching Strategy](./docs/BRANCHING_STRATEGY.md)** - Git workflow and branching model
 - **[Roadmap](./ROADMAP.md)** - Feature roadmap and timeline
 - **[Deployment](./docs/runbooks/DEPLOYMENT.md)** - Deployment procedures
 - **[API Documentation](https://developers.akaind.ca)** - API reference
