@@ -308,8 +308,9 @@ jobs:
           kubectl set image deployment/marketing marketing=ghcr.io/${{ github.repository }}/marketing:sha-${{ github.sha }} -n akaind-platform
           kubectl rollout status deployment/marketing -n akaind-platform --timeout=5m
 
-      - name: Run smoke tests
+      - name: Run smoke tests on production
         run: |
+          # Test production health endpoint after canary deployment
           curl -f https://www.akaind.ca/health || exit 1
 
   # Deploy to Production

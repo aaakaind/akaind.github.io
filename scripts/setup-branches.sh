@@ -85,3 +85,5 @@ echo "  - docs/BRANCHING_STRATEGY.md"
 echo "  - CONTRIBUTING.md"
 echo "  - docs/runbooks/DEPLOYMENT.md"
 echo ""
+
+exit 0
