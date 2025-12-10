@@ -1405,3 +1405,367 @@ body {
         grid-column: span 1;
     }
 }
+
+/* DNS Configuration Styles */
+.dns-instructions {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--cool-teal);
+}
+
+.dns-instructions h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-black);
+}
+
+.dns-instructions > p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.dns-records {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.dns-record {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.dns-record h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--cool-blue);
+}
+
+.dns-record code {
+    display: block;
+    background: #fff;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: #2c3e50;
+    border: 1px solid #dee2e6;
+    overflow-x: auto;
+}
+
+.dns-note {
+    font-size: 0.875rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.dns-providers {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #e3f2fd;
+    border-radius: 12px;
+}
+
+.dns-providers h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--text-black);
+}
+
+.dns-providers ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dns-providers li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dns-providers li:last-child {
+    border-bottom: none;
+}
+
+.dns-providers strong {
+    color: var(--cool-blue);
+}
+
+/* Employee Login Styles */
+.employee-login-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 16px;
+}
+
+.employee-login-section h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-black);
+}
+
+.login-instructions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.login-instruction-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-instruction-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--cool-blue);
+}
+
+.login-instruction-card ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-instruction-card ol li {
+    padding: 0.5rem 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.login-instruction-card ul.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.login-instruction-card ul.feature-list li {
+    padding: 0.5rem 0;
+    color: #555;
+}
+
+.login-note {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-left: 3px solid var(--cool-teal);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.login-note a {
+    color: var(--cool-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-note a:hover {
+    text-decoration: underline;
+}
+
+/* System Card Enhancements */
+.system-card.employee-login,
+.system-card.admin-login,
+.system-card.games-portal {
+    position: relative;
+    border: 2px solid var(--cool-blue);
+}
+
+.login-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent-gradient);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.system-card.games-portal .login-badge {
+    background: linear-gradient(135deg, #4caf50, #8bc34a);
+}
+
+/* Game Section Enhancements */
+.game-portal-banner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.portal-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+}
+
+.portal-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.portal-content p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.portal-content a {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.portal-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #667eea;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.portal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-features {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.game-features p {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-black);
+}
+
+.game-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.game-features li {
+    padding: 0.4rem 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.game-features li:before {
+    content: "▸ ";
+    color: var(--cool-purple);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.game-play-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-gradient);
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.game-play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+}
+
+.game-dev-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+}
+
+.game-dev-section h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-black);
+}
+
+.game-dev-section > p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.tech-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.tech-feature {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 3px solid var(--cool-purple);
+}
+
+.tech-feature h4 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--cool-blue);
+}
+
+.tech-feature ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-feature li {
+    padding: 0.5rem 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+.tech-feature li:before {
+    content: "✓ ";
+    color: var(--cool-teal);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .game-portal-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .dns-records,
+    .login-instructions-grid,
+    .tech-features-grid {
+        grid-template-columns: 1fr;
+    }
+}

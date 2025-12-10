@@ -196,6 +196,17 @@
                 <p class="section-subtitle">
                     Entertainment meets innovation through cutting-edge game development
                 </p>
+                
+                <!-- Game Portal Link -->
+                <div class="game-portal-banner">
+                    <div class="portal-icon">🎮</div>
+                    <div class="portal-content">
+                        <h3>Play Now on Games Portal</h3>
+                        <p>Access all our games and interactive experiences at <a href="https://games.akaind.ca" target="_blank">games.akaind.ca</a></p>
+                        <a href="https://games.akaind.ca" class="portal-button" target="_blank">Launch Games Portal →</a>
+                    </div>
+                </div>
+                
                 <div class="games-grid">
                     <div class="game-card">
                         <div class="game-icon">🎮</div>
@@ -205,6 +216,16 @@
                             <span class="tag">Strategy</span>
                             <span class="tag">Simulation</span>
                         </div>
+                        <div class="game-features">
+                            <p><strong>Features:</strong></p>
+                            <ul>
+                                <li>Build tech companies from startup to IPO</li>
+                                <li>Manage R&D, hiring, and product launches</li>
+                                <li>Compete with AI opponents</li>
+                                <li>Multiplayer mode available</li>
+                            </ul>
+                        </div>
+                        <a href="https://games.akaind.ca/tech-tycoon" class="game-play-button" target="_blank">Play Now</a>
                     </div>
                     <div class="game-card">
                         <div class="game-icon">🌌</div>
@@ -214,6 +235,16 @@
                             <span class="tag">Sci-Fi</span>
                             <span class="tag">Building</span>
                         </div>
+                        <div class="game-features">
+                            <p><strong>Features:</strong></p>
+                            <ul>
+                                <li>Design orbital factories and mining stations</li>
+                                <li>Manage resources in zero gravity</li>
+                                <li>Research advanced technologies</li>
+                                <li>Explore procedurally generated galaxies</li>
+                            </ul>
+                        </div>
+                        <a href="https://games.akaind.ca/space-factory" class="game-play-button" target="_blank">Play Now</a>
                     </div>
                     <div class="game-card">
                         <div class="game-icon">🤖</div>
@@ -223,6 +254,16 @@
                             <span class="tag">Educational</span>
                             <span class="tag">Programming</span>
                         </div>
+                        <div class="game-features">
+                            <p><strong>Features:</strong></p>
+                            <ul>
+                                <li>Learn Python, JavaScript, and ML basics</li>
+                                <li>Train neural networks interactively</li>
+                                <li>Complete coding challenges</li>
+                                <li>Earn certificates and badges</li>
+                            </ul>
+                        </div>
+                        <a href="https://games.akaind.ca/ai-training" class="game-play-button" target="_blank">Play Now</a>
                     </div>
                     <div class="game-card">
                         <div class="game-icon">🏭</div>
@@ -231,6 +272,51 @@
                         <div class="game-tags">
                             <span class="tag">Puzzle</span>
                             <span class="tag">Optimization</span>
+                        </div>
+                        <div class="game-features">
+                            <p><strong>Features:</strong></p>
+                            <ul>
+                                <li>Design efficient production lines</li>
+                                <li>Solve logistics puzzles</li>
+                                <li>Unlock new automation tools</li>
+                                <li>Compete on global leaderboards</li>
+                            </ul>
+                        </div>
+                        <a href="https://games.akaind.ca/assembly-line" class="game-play-button" target="_blank">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Game Development Info -->
+                <div class="game-dev-section">
+                    <h3>🛠️ Game Development Platform</h3>
+                    <p>Our games are built using cutting-edge web technologies and can run directly in your browser—no downloads required!</p>
+                    <div class="tech-features-grid">
+                        <div class="tech-feature">
+                            <h4>Technology Stack</h4>
+                            <ul>
+                                <li>WebGL & Three.js for 3D graphics</li>
+                                <li>WebAssembly for high performance</li>
+                                <li>Real-time multiplayer with WebSockets</li>
+                                <li>Progressive Web App (PWA) support</li>
+                            </ul>
+                        </div>
+                        <div class="tech-feature">
+                            <h4>Player Features</h4>
+                            <ul>
+                                <li>Cross-platform play (desktop, mobile, tablet)</li>
+                                <li>Cloud save synchronization</li>
+                                <li>Achievement system</li>
+                                <li>Social features and leaderboards</li>
+                            </ul>
+                        </div>
+                        <div class="tech-feature">
+                            <h4>Account Benefits</h4>
+                            <ul>
+                                <li>Free to play with optional premium features</li>
+                                <li>Save progress across devices</li>
+                                <li>Exclusive content for employees</li>
+                                <li>Early access to new releases</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -348,6 +434,55 @@
                 <p class="section-subtitle">
                     Multiple platforms designed for different needs - access them by modifying the web address
                 </p>
+                
+                <!-- DNS Configuration Instructions -->
+                <div class="dns-instructions">
+                    <h3>🌐 DNS Configuration Guide</h3>
+                    <p>To enable subdomain access for all AKA Industries platforms, configure your DNS settings as follows:</p>
+                    
+                    <div class="dns-records">
+                        <div class="dns-record">
+                            <h4>Primary Domain</h4>
+                            <code>akaind.ca → A Record → Your Server IP</code>
+                            <code>www.akaind.ca → CNAME → akaind.ca</code>
+                        </div>
+                        
+                        <div class="dns-record">
+                            <h4>Wildcard Subdomain (Recommended)</h4>
+                            <code>*.akaind.ca → CNAME → akaind.ca</code>
+                            <p class="dns-note">This enables all subdomains (console, staff, admin, etc.) automatically</p>
+                        </div>
+                        
+                        <div class="dns-record">
+                            <h4>Individual Subdomains (Alternative)</h4>
+                            <code>console.akaind.ca → CNAME → akaind.ca</code>
+                            <code>staff.akaind.ca → CNAME → akaind.ca</code>
+                            <code>admin.akaind.ca → CNAME → akaind.ca</code>
+                            <code>developers.akaind.ca → CNAME → akaind.ca</code>
+                            <code>partners.akaind.ca → CNAME → akaind.ca</code>
+                            <code>status.akaind.ca → CNAME → akaind.ca</code>
+                            <code>docs.akaind.ca → CNAME → akaind.ca</code>
+                            <code>games.akaind.ca → CNAME → akaind.ca</code>
+                        </div>
+                        
+                        <div class="dns-record">
+                            <h4>SSL/TLS Certificates</h4>
+                            <p class="dns-note">Enable wildcard SSL certificate for *.akaind.ca to secure all subdomains</p>
+                            <code>Certificate: *.akaind.ca + akaind.ca</code>
+                        </div>
+                    </div>
+                    
+                    <div class="dns-providers">
+                        <h4>Quick Setup Links for Popular DNS Providers:</h4>
+                        <ul>
+                            <li><strong>Cloudflare:</strong> DNS → Add Record → Type: CNAME → Name: * → Target: akaind.ca</li>
+                            <li><strong>AWS Route 53:</strong> Hosted Zone → Create Record → Record Type: CNAME → Name: * → Value: akaind.ca</li>
+                            <li><strong>Google Cloud DNS:</strong> Create Record Set → DNS Name: *.akaind.ca → Type: CNAME → Data: akaind.ca</li>
+                            <li><strong>Namecheap:</strong> Advanced DNS → Add New Record → Type: CNAME → Host: * → Value: akaind.ca</li>
+                        </ul>
+                    </div>
+                </div>
+                
                 <div class="systems-grid">
                     <a href="https://www.akaind.ca" class="system-card" target="_blank" rel="noopener noreferrer">
                         <div class="system-icon">🏠</div>
@@ -385,22 +520,71 @@
                         <p class="system-url">docs.akaind.ca</p>
                         <p class="system-description">Comprehensive guides and tutorials</p>
                     </a>
-                    <a href="https://staff.akaind.ca" class="system-card" target="_blank" rel="noopener noreferrer">
+                    <a href="https://staff.akaind.ca" class="system-card employee-login" target="_blank" rel="noopener noreferrer">
                         <div class="system-icon">👥</div>
                         <h3>Employee Portal</h3>
                         <p class="system-url">staff.akaind.ca</p>
                         <p class="system-description">Staff management, HR, and internal resources</p>
+                        <span class="login-badge">🔐 Login Required</span>
                     </a>
-                    <a href="https://admin.akaind.ca" class="system-card" target="_blank" rel="noopener noreferrer">
+                    <a href="https://admin.akaind.ca" class="system-card admin-login" target="_blank" rel="noopener noreferrer">
                         <div class="system-icon">🔧</div>
                         <h3>Admin Panel</h3>
                         <p class="system-url">admin.akaind.ca</p>
                         <p class="system-description">System administration and configuration</p>
+                        <span class="login-badge">🔐 Admin Access</span>
+                    </a>
+                    <a href="https://games.akaind.ca" class="system-card games-portal" target="_blank" rel="noopener noreferrer">
+                        <div class="system-icon">🎮</div>
+                        <h3>Games Portal</h3>
+                        <p class="system-url">games.akaind.ca</p>
+                        <p class="system-description">Play our interactive games and simulations</p>
+                        <span class="login-badge">🆓 Free Access</span>
                     </a>
                 </div>
                 <div class="access-tip">
                     <div class="tip-icon">💡</div>
                     <p><strong>Quick Tip:</strong> Simply change the subdomain in your browser's address bar to access different systems. For example, replace <code>www</code> with <code>console</code> to access the Product Console.</p>
+                </div>
+                
+                <!-- Employee Login Instructions -->
+                <div class="employee-login-section">
+                    <h3>🔐 Employee & Admin Login</h3>
+                    <div class="login-instructions-grid">
+                        <div class="login-instruction-card">
+                            <h4>Employee Portal Access</h4>
+                            <ol>
+                                <li>Navigate to <a href="https://staff.akaind.ca" target="_blank">staff.akaind.ca</a></li>
+                                <li>Enter your company email address</li>
+                                <li>Use your assigned password (check your welcome email)</li>
+                                <li>Enable 2FA for enhanced security (recommended)</li>
+                            </ol>
+                            <p class="login-note"><strong>First-time login?</strong> Contact HR at <a href="mailto:hr@akaind.ca">hr@akaind.ca</a> for credentials</p>
+                        </div>
+                        
+                        <div class="login-instruction-card">
+                            <h4>Admin Panel Access</h4>
+                            <ol>
+                                <li>Navigate to <a href="https://admin.akaind.ca" target="_blank">admin.akaind.ca</a></li>
+                                <li>Use your admin credentials (SSO supported)</li>
+                                <li>Complete MFA verification</li>
+                                <li>Access system configuration and management tools</li>
+                            </ol>
+                            <p class="login-note"><strong>Need admin access?</strong> Request approval from IT at <a href="mailto:it@akaind.ca">it@akaind.ca</a></p>
+                        </div>
+                        
+                        <div class="login-instruction-card">
+                            <h4>Authentication Features</h4>
+                            <ul class="feature-list">
+                                <li>✓ Single Sign-On (SSO) with Google, Microsoft, Okta</li>
+                                <li>✓ Multi-Factor Authentication (MFA)</li>
+                                <li>✓ Biometric login (fingerprint, Face ID)</li>
+                                <li>✓ Password reset via email or SMS</li>
+                                <li>✓ Session timeout for security</li>
+                                <li>✓ IP whitelisting for admin accounts</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

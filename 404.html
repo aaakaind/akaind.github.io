@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page Not Found - AKA INDUSTRIES">
+    <title>404 - Page Not Found | AKA INDUSTRIES</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --text-black: #1a1a1a;
+            --cool-teal: #20c997;
+            --cool-purple: #6c5ce7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .error-code {
+            font-size: 12rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 80px rgba(255, 255, 255, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .error-message {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .suggestions {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .suggestions h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .suggestions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suggestions li {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+        }
+
+        .suggestions a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .suggestions a:hover {
+            transform: translateX(5px);
+            text-decoration: underline;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 10%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(50px, -50px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-50px, 50px) rotate(240deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 8rem;
+            }
+
+            .error-title {
+                font-size: 2rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">
+            Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or the URL might be incorrect.
+        </p>
+
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary">
+                <span>🏠</span>
+                <span>Go to Homepage</span>
+            </a>
+            <a href="javascript:history.back()" class="btn btn-secondary">
+                <span>←</span>
+                <span>Go Back</span>
+            </a>
+        </div>
+
+        <div class="suggestions">
+            <h3>Looking for something?</h3>
+            <ul>
+                <li>→ <a href="/#infrastructure">Backend Infrastructure</a></li>
+                <li>→ <a href="/#products">Products & Solutions</a></li>
+                <li>→ <a href="/#projects">Our Projects</a></li>
+                <li>→ <a href="/#games">Interactive Games</a></li>
+                <li>→ <a href="/#systems">System Access</a></li>
+                <li>→ <a href="/#pitch">Investor Pitch Deck</a></li>
+                <li>→ <a href="/#contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">
+            Error Code: 404 | AKA INDUSTRIES - Enterprise Technology Platform
+        </p>
+    </div>
+
+    <script>
+        // Add animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.error-container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.6s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+
+        // Log 404 error for analytics (if needed)
+        console.error('404 Error: Page not found -', window.location.href);
+    </script>
+</body>
+</html>
