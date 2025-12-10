@@ -249,10 +249,10 @@
                 <span>🏠</span>
                 <span>Go to Homepage</span>
             </a>
-            <a href="javascript:history.back()" class="btn btn-secondary">
+            <button onclick="history.back()" class="btn btn-secondary" aria-label="Go back to previous page">
                 <span>←</span>
                 <span>Go Back</span>
-            </a>
+            </button>
         </div>
 
         <div class="suggestions">
@@ -287,8 +287,10 @@
             }, 100);
         });
 
-        // Log 404 error for analytics (if needed)
-        console.error('404 Error: Page not found -', window.location.href);
+        // Log 404 error for analytics (only in development)
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.error('404 Error: Page not found -', window.location.href);
+        }
     </script>
 </body>
 </html>
