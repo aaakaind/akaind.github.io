@@ -1,24 +1,60 @@
 // Enhanced interactive features
 document.addEventListener('DOMContentLoaded', () => {
+    // Hide loading screen when page is fully loaded
+    try {
+        const loadingScreen = document.getElementById('loading-screen');
+        
+        // Ensure all resources are loaded
+        window.addEventListener('load', () => {
+            try {
+                setTimeout(() => {
+                    if (loadingScreen) {
+                        loadingScreen.classList.add('hidden');
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                        }, 500);
+                    }
+                }, 500);
+            } catch (error) {
+                console.error('Error hiding loading screen:', error);
+                // Ensure loading screen is hidden even if there's an error
+                if (loadingScreen) {
+                    loadingScreen.style.display = 'none';
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Error initializing loading screen:', error);
+    }
+
     // Initialize slideshow
     let slideIndex = 0;
     let slideTimer;
-    showSlides();
+    
+    try {
+        showSlides();
+    } catch (error) {
+        console.error('Error initializing slideshow:', error);
+    }
 
     // Smooth scroll behavior for navigation links
     const navLinks = document.querySelectorAll('.nav-menu a');
     
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            try {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } catch (error) {
+                console.error('Error during smooth scroll:', error);
             }
         });
     });
@@ -31,94 +67,128 @@ document.addEventListener('DOMContentLoaded', () => {
     // Back to Top Button
     const backToTopButton = document.getElementById('backToTop');
 
-    scrollContainer.addEventListener('scroll', () => {
-        let current = '';
+    if (scrollContainer && scrollProgress && backToTopButton) {
+        scrollContainer.addEventListener('scroll', () => {
+            try {
+                let current = '';
 
-        // Update scroll progress bar
-        const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-        const scrolled = (scrollContainer.scrollTop / scrollHeight) * 100;
-        scrollProgress.style.width = scrolled + '%';
+                // Update scroll progress bar
+                const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+                const scrolled = (scrollContainer.scrollTop / scrollHeight) * 100;
+                scrollProgress.style.width = scrolled + '%';
 
-        // Show/hide back to top button
-        if (scrollContainer.scrollTop > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
+                // Show/hide back to top button
+                if (scrollContainer.scrollTop > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - scrollContainer.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollContainer.scrollTop >= sectionTop - 100) {
-                current = section.getAttribute('id');
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - scrollContainer.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollContainer.scrollTop >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            } catch (error) {
+                console.error('Error during scroll handling:', error);
             }
         });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
+    }
 
     // Add 3D tilt effect to cards on mouse move
-    const cards = document.querySelectorAll('.card-3d, .manufacturing-card, .contact-card');
+    const cards = document.querySelectorAll('.card-3d, .manufacturing-card, .contact-card, .project-card, .game-card');
     
     cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        try {
+            card.addEventListener('mousemove', (e) => {
+                try {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                } catch (error) {
+                    console.error('Error in card mousemove handler:', error);
+                }
+            });
             
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-        });
+            card.addEventListener('mouseleave', () => {
+                try {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                } catch (error) {
+                    console.error('Error in card mouseleave handler:', error);
+                }
+            });
+        } catch (error) {
+            console.error('Error adding card event listeners:', error);
+        }
     });
 
     // Parallax effect for hero 3D element
     const hero3dElement = document.querySelector('.hero-3d-element');
     
-    scrollContainer.addEventListener('scroll', () => {
-        const scrolled = scrollContainer.scrollTop;
-        if (hero3dElement) {
-            hero3dElement.style.transform = `translateY(${-50 + scrolled * 0.3}%) translateX(${scrolled * 0.1}px) scale(${1 + scrolled * 0.0005})`;
-        }
-    });
-
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+    if (scrollContainer && hero3dElement) {
+        scrollContainer.addEventListener('scroll', () => {
+            try {
+                const scrolled = scrollContainer.scrollTop;
+                hero3dElement.style.transform = `translateY(${-50 + scrolled * 0.3}%) translateX(${scrolled * 0.1}px) scale(${1 + scrolled * 0.0005})`;
+            } catch (error) {
+                console.error('Error in parallax effect:', error);
             }
         });
-    }, observerOptions);
+    }
 
-    // Animate elements on scroll
-    const animateElements = document.querySelectorAll('.card, .ai-feature, .autonomous-text, .manufacturing-card, .contact-card');
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+    // Intersection Observer for fade-in animations
+    try {
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            try {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            } catch (error) {
+                console.error('Error in intersection observer callback:', error);
+            }
+        }, observerOptions);
+
+        // Animate elements on scroll
+        const animateElements = document.querySelectorAll('.card, .ai-feature, .autonomous-text, .manufacturing-card, .contact-card, .project-card, .game-card');
+        animateElements.forEach(el => {
+            try {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            } catch (error) {
+                console.error('Error animating element:', error);
+            }
+        });
+    } catch (error) {
+        console.error('Error setting up intersection observer:', error);
+    }
 
     // Add subtle cursor trail effect
     const cursorTrail = document.createElement('div');
@@ -184,89 +254,107 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Slideshow Functions
     function showSlides() {
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        
-        if (slides.length === 0) return;
-        
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
+        try {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            
+            if (slides.length === 0) return;
+            
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].classList.add('active');
+            }
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
+            
+            clearTimeout(slideTimer);
+            slideTimer = setTimeout(showSlides, 5000); // Change slide every 5 seconds
+        } catch (error) {
+            console.error('Error in showSlides:', error);
         }
-        
-        if (slides[slideIndex - 1]) {
-            slides[slideIndex - 1].classList.add('active');
-        }
-        if (dots[slideIndex - 1]) {
-            dots[slideIndex - 1].classList.add('active');
-        }
-        
-        clearTimeout(slideTimer);
-        slideTimer = setTimeout(showSlides, 5000); // Change slide every 5 seconds
     }
 
     // Make slideshow functions globally available
     window.changeSlide = function(n) {
-        clearTimeout(slideTimer);
-        const slides = document.querySelectorAll('.slide');
-        slideIndex += n;
-        
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
+        try {
+            clearTimeout(slideTimer);
+            const slides = document.querySelectorAll('.slide');
+            slideIndex += n;
+            
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            if (slideIndex < 1) {
+                slideIndex = slides.length;
+            }
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].classList.add('active');
+            }
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
+            
+            slideTimer = setTimeout(showSlides, 5000);
+        } catch (error) {
+            console.error('Error in changeSlide:', error);
         }
-        if (slideIndex < 1) {
-            slideIndex = slides.length;
-        }
-        
-        slides.forEach(slide => slide.classList.remove('active'));
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        if (slides[slideIndex - 1]) {
-            slides[slideIndex - 1].classList.add('active');
-        }
-        if (dots[slideIndex - 1]) {
-            dots[slideIndex - 1].classList.add('active');
-        }
-        
-        slideTimer = setTimeout(showSlides, 5000);
     };
 
     window.currentSlide = function(n) {
-        clearTimeout(slideTimer);
-        slideIndex = n;
-        
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        if (slides[slideIndex - 1]) {
-            slides[slideIndex - 1].classList.add('active');
+        try {
+            clearTimeout(slideTimer);
+            slideIndex = n;
+            
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].classList.add('active');
+            }
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
+            
+            slideTimer = setTimeout(showSlides, 5000);
+        } catch (error) {
+            console.error('Error in currentSlide:', error);
         }
-        if (dots[slideIndex - 1]) {
-            dots[slideIndex - 1].classList.add('active');
-        }
-        
-        slideTimer = setTimeout(showSlides, 5000);
     };
 
     // Back to Top functionality
-    backToTopButton.addEventListener('click', () => {
-        scrollContainer.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopButton && scrollContainer) {
+        backToTopButton.addEventListener('click', () => {
+            try {
+                scrollContainer.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } catch (error) {
+                console.error('Error in back to top:', error);
+            }
         });
-    });
+    }
 
     console.log('AAAKAIND - Advanced Technology Solutions initialized');
 });

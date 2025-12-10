@@ -1,0 +1,43 @@
+# robots.txt for AKA INDUSTRIES
+# https://www.akaind.ca/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /404.html
+
+# Sitemap location
+Sitemap: https://www.akaind.ca/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 10
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 5
+
+# Bing-specific  
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 5
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 20
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
