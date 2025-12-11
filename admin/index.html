@@ -209,13 +209,17 @@
         // Placeholder password (in production, this would be handled server-side)
         const ADMIN_PASSWORD = 'secure123';
 
+        // Clear any existing session on login page load
+        sessionStorage.removeItem('adminAuthenticated');
+
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const enteredPassword = passwordInput.value;
             
             if (enteredPassword === ADMIN_PASSWORD) {
-                // Password is correct, redirect to dashboard
+                // Password is correct, set session and redirect to dashboard
+                sessionStorage.setItem('adminAuthenticated', 'true');
                 window.location.href = 'dashboard.html';
             } else {
                 // Password is incorrect, show error

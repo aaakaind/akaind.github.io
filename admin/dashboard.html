@@ -320,8 +320,17 @@
     </div>
 
     <script>
+        // Check authentication on page load
+        if (sessionStorage.getItem('adminAuthenticated') !== 'true') {
+            // Not authenticated, redirect to login
+            window.location.href = 'index.html';
+        }
+
         function logout() {
             if (confirm('Are you sure you want to logout?')) {
+                // Clear session storage
+                sessionStorage.removeItem('adminAuthenticated');
+                // Redirect to login page
                 window.location.href = 'index.html';
             }
         }
@@ -329,6 +338,16 @@
         // Add animation delay to cards
         document.querySelectorAll('.dashboard-card').forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Prevent back button navigation after logout
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted || performance.getEntriesByType("navigation")[0].type === 'back_forward') {
+                // Check auth again if page was loaded from cache
+                if (sessionStorage.getItem('adminAuthenticated') !== 'true') {
+                    window.location.href = 'index.html';
+                }
+            }
         });
     </script>
 </body>
